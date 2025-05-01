@@ -1,0 +1,11 @@
+services:
+  db:
+    image: postgres
+    restart: always
+    shm_size: 128mb
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=docu_nest_dev
+      - POSTGRES_USER=docu_nest_db
+      - POSTGRES_DB=docu_nest
