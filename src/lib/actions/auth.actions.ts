@@ -1,40 +1,65 @@
 "use server";
 
 import { FormState } from "@/types/form";
-import { LoginFormSchema } from "../schemas/auth.schemas";
+import { LoginFormSchema, SigninFormSchema } from "../schemas/auth.schemas";
 import { z } from "zod";
 import { redirect } from "next/navigation";
-import { verifyLogin } from "../services/auth.service";
+import { createUser, verifyLogin } from "../services/auth.service";
 import { cookies } from "next/headers";
-import { ACCESS_TOKEN } from "@/utils/constants";
+import { ACCESS_TOKEN, ROUTES } from "@/utils/constants";
 
 type LoginState = FormState<null, z.infer<typeof LoginFormSchema>>;
+type SigninState = FormState<null, z.infer<typeof SigninFormSchema>>;
 
 export async function login(
   _: LoginState | undefined,
   formData: FormData
 ): Promise<LoginState> {
-  const validateFields = LoginFormSchema.safeParse(
+  const { success, data, error } = LoginFormSchema.safeParse(
     Object.fromEntries(formData)
   );
 
-  if (!validateFields.success) {
+  if (!success) {
     return {
-      error: validateFields.error.flatten().fieldErrors,
+      error: error.flatten().fieldErrors,
     };
   }
 
   try {
-    const token = await verifyLogin(validateFields.data.password);
-    const cookieStore = await cookies();
-    cookieStore.set(ACCESS_TOKEN, token, { secure: true, httpOnly: true });
+    const token = await verifyLogin(data);
+    await setAccessToken(token);
   } catch {
-    return { error: { root: "La contraseña no es correcta" } };
+    return { error: { root: "El usuario o la contraseña no es correcta" } };
   }
 
-  if (validateFields.data.nextUrl) {
-    redirect(validateFields.data.nextUrl);
+  if (data.nextUrl) {
+    redirect(data.nextUrl);
   }
 
   return { success: null };
+}
+
+export async function signin(
+  _: LoginState | undefined,
+  formData: FormData
+): Promise<SigninState> {
+  const { success, data, error } = SigninFormSchema.safeParse(
+    Object.fromEntries(formData)
+  );
+
+  if (!success) {
+    return {
+      error: error.flatten().fieldErrors,
+    };
+  }
+
+  const token = await createUser(data);
+  await setAccessToken(token);
+
+  redirect(ROUTES.HOME);
+}
+
+async function setAccessToken(token: string) {
+  const cookieStore = await cookies();
+  cookieStore.set(ACCESS_TOKEN, token, { secure: true, httpOnly: true });
 }

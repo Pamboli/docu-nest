@@ -2,10 +2,12 @@ import { NextRequest, NextResponse } from "next/server";
 import { ACCESS_TOKEN, ROUTES } from "./utils/constants";
 import { verifyToken } from "./lib/services/auth.service";
 
+const OPEN_ROUTES = [ROUTES.LOGIN, ROUTES.SIGNIN] as string[];
+
 export async function middleware(request: NextRequest) {
   // Auth
 
-  if (!request.nextUrl.pathname.toLowerCase().includes(ROUTES.LOGIN)) {
+  if (!OPEN_ROUTES.includes(request.nextUrl.pathname.toLowerCase())) {
     const accessToken = request.cookies.get(ACCESS_TOKEN);
     console.log("🚀 ~ middleware ~ accessToken:", accessToken);
 
@@ -15,13 +17,14 @@ export async function middleware(request: NextRequest) {
     }
 
     const isTokenVerified = await verifyToken(accessToken.value);
-    console.log("🚀 ~ middleware ~ isTokenVerified:", isTokenVerified);
 
     if (!isTokenVerified) {
       const redirectUrl = getAuthRedirectUrl(request);
       return NextResponse.redirect(redirectUrl);
     }
   }
+
+  console.log("ADEEEU");
 }
 
 function getAuthRedirectUrl(request: NextRequest) {

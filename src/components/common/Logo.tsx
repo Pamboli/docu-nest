@@ -3,9 +3,9 @@ import LogoImg from "../../../public/logo.png";
 
 function Logo() {
   return (
-    <div className="flex items-center">
-      <Image src={LogoImg} width={96} alt="Logo Image" />
-      <span className="ml-1 font-bold text-4xl">DocuNest</span>
+    <div className="flex items-center gap-2">
+      <Image src={LogoImg} width={64} alt="Logo Image" />
+      <span className="ml-1 font-bold text-3xl">DocuNest</span>
     </div>
   );
 }

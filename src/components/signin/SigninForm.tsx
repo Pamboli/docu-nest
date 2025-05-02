@@ -3,17 +3,14 @@
 import { useActionState } from "react";
 import { Button } from "../common/Button";
 import { Input } from "../common/Input";
-import { login } from "@/lib/actions/auth.actions";
+import { signin } from "@/lib/actions/auth.actions";
 
-type Props = {
-  nextUrl: string;
-};
-
-export function LoginForm({ nextUrl }: Props) {
-  const [state, action, pending] = useActionState(login, undefined);
+export function SigninForm() {
+  const [state, action, pending] = useActionState(signin, undefined);
 
   return (
     <form action={action} className="flex flex-col gap-4 min-w-96">
+      <Input label="Nombre" name="name" error={state?.error?.name?.[0]} />
       <Input
         label="Correo electrónico"
         name="email"
@@ -26,8 +23,7 @@ export function LoginForm({ nextUrl }: Props) {
         name="password"
         error={state?.error?.password?.[0]}
       />
-      <input type="hidden" name="nextUrl" defaultValue={nextUrl} />
-      <Button loading={pending}>Iniciar sesión</Button>
+      <Button loading={pending}>Crear cuenta</Button>
       {state?.error?.root && (
         <p className="text-sm text-red-600">{state.error.root}</p>
       )}

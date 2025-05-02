@@ -10,7 +10,7 @@ type Props = {
   error?: string;
   name: string;
   placeholder?: string;
-  type?: "text" | "password";
+  type?: "text" | "password" | "email";
 };
 
 function Input({ error, label, name, placeholder, type = "text" }: Props) {
@@ -27,7 +27,7 @@ function Input({ error, label, name, placeholder, type = "text" }: Props) {
       )}
       <div
         className={clsx(
-          "flex h-11 rounded-md border border-gray-300 px-3 py-2 outline-2 -outline-offset-1",
+          "flex h-11 rounded-md border border-gray-300 px-3 py-2",
           {
             "outline outline-red-600": !!error,
             "outline-accent focus-within:outline": !error,
@@ -40,14 +40,16 @@ function Input({ error, label, name, placeholder, type = "text" }: Props) {
           placeholder={placeholder}
           type={internalType}
         />
-        <button
-          type="button"
-          className="cursor-pointer"
-          onClick={() => setIsPasswordVisible((old) => !old)}
-        >
-          {type === "password" && !isPasswordVisible && <Eye />}
-          {type === "password" && isPasswordVisible && <EyeClosed />}
-        </button>
+        {type === "password" && (
+          <button
+            type="button"
+            className="cursor-pointer"
+            onClick={() => setIsPasswordVisible((old) => !old)}
+          >
+            {!isPasswordVisible && <Eye />}
+            {isPasswordVisible && <EyeClosed />}
+          </button>
+        )}
       </div>
       {error && <FormError>{error}</FormError>}
     </div>
