@@ -11,7 +11,7 @@ type Props = {
 
 function getVariant(variant: Props["variant"]) {
   return clsx(
-    "rounded-md px-4 flex items-center justify-center font-medium transition-colors h-11",
+    "rounded-md px-4 flex items-center gap-2 justify-center font-medium transition-colors h-12 w-full",
     variant === "primary"
       ? "hover:bg-accent-hover bg-primary text-background"
       : "outline outline-2 -outline-offset-2 outline-gray-900 hover:outline-accent-hover"

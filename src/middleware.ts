@@ -9,7 +9,6 @@ export async function middleware(request: NextRequest) {
 
   if (!OPEN_ROUTES.includes(request.nextUrl.pathname.toLowerCase())) {
     const accessToken = request.cookies.get(ACCESS_TOKEN);
-    console.log("🚀 ~ middleware ~ accessToken:", accessToken);
 
     if (!accessToken) {
       const redirectUrl = getAuthRedirectUrl(request);
@@ -23,8 +22,6 @@ export async function middleware(request: NextRequest) {
       return NextResponse.redirect(redirectUrl);
     }
   }
-
-  console.log("ADEEEU");
 }
 
 function getAuthRedirectUrl(request: NextRequest) {

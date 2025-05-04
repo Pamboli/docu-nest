@@ -59,6 +59,13 @@ export async function signin(
   redirect(ROUTES.HOME);
 }
 
+export async function logout() {
+  const cookieStore = await cookies();
+  cookieStore.delete(ACCESS_TOKEN);
+
+  redirect(ROUTES.LOGIN);
+}
+
 async function setAccessToken(token: string) {
   const cookieStore = await cookies();
   cookieStore.set(ACCESS_TOKEN, token, { secure: true, httpOnly: true });
