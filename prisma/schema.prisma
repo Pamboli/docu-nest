@@ -17,11 +17,12 @@ model User {
 }
 
 model Document {
-  id       String       @id @default(uuid())
-  fileName String       @map("file_name")
-  filePath String       @map("file_path")
-  type     DocumentType
-  date     DateTime?
+  id          String       @id @default(uuid())
+  name        String
+  description String?
+  fileName    String       @map("file_name")
+  filePath    String       @map("file_path")
+  type        DocumentType
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt()

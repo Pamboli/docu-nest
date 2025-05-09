@@ -20,9 +20,7 @@ export async function login(
   );
 
   if (!success) {
-    return {
-      error: error.flatten().fieldErrors,
-    };
+    return { error: error.flatten().fieldErrors };
   }
 
   try {
@@ -36,7 +34,7 @@ export async function login(
     redirect(data.nextUrl);
   }
 
-  return { success: null };
+  return { data: null };
 }
 
 export async function signin(

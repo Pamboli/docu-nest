@@ -2,19 +2,29 @@ import { type PropsWithChildren } from "react";
 
 import { clsx } from "clsx";
 import { Spinner } from "./Spinner";
+import Link from "next/link";
 
 type Props = {
+  noGrow?: boolean;
   variant?: "primary" | "secondary";
-  type?: "submit" | "reset" | "button";
   loading?: boolean;
-};
+} & (
+  | {
+      type?: "submit" | "reset" | "button";
+      href?: never;
+    }
+  | {
+      type?: never;
+      href: string;
+    }
+);
 
 function getVariant(variant: Props["variant"]) {
   return clsx(
-    "rounded-md px-4 flex items-center gap-2 justify-center font-medium transition-colors h-12 w-full",
+    "rounded-md px-4 flex items-center gap-2 justify-center font-medium transition-colors h-12",
     variant === "primary"
-      ? "hover:bg-accent-hover bg-primary text-background"
-      : "outline outline-2 -outline-offset-2 outline-gray-900 hover:outline-accent-hover"
+      ? "hover:bg-primary-hover bg-primary text-background"
+      : "hover:bg-gray-300 bg-gray-200 text-gray-600"
   );
 }
 
@@ -23,9 +33,25 @@ function Button({
   children,
   type = "submit",
   loading,
+  href,
+  noGrow = false,
 }: PropsWithChildren<Props>) {
+  if (href) {
+    return (
+      <Link
+        href={href}
+        className={clsx(getVariant(variant), !noGrow && "w-full")}
+      >
+        {loading ? <Spinner /> : children}
+      </Link>
+    );
+  }
+
   return (
-    <button className={getVariant(variant)} type={type}>
+    <button
+      className={clsx(getVariant(variant), !noGrow && "w-full")}
+      type={type}
+    >
       {loading ? <Spinner /> : children}
     </button>
   );

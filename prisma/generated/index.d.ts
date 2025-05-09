@@ -2076,10 +2076,11 @@ export namespace Prisma {
 
   export type DocumentMinAggregateOutputType = {
     id: string | null
+    name: string | null
+    description: string | null
     fileName: string | null
     filePath: string | null
     type: $Enums.DocumentType | null
-    date: Date | null
     createdAt: Date | null
     updatedAt: Date | null
     ownerId: string | null
@@ -2087,10 +2088,11 @@ export namespace Prisma {
 
   export type DocumentMaxAggregateOutputType = {
     id: string | null
+    name: string | null
+    description: string | null
     fileName: string | null
     filePath: string | null
     type: $Enums.DocumentType | null
-    date: Date | null
     createdAt: Date | null
     updatedAt: Date | null
     ownerId: string | null
@@ -2098,10 +2100,11 @@ export namespace Prisma {
 
   export type DocumentCountAggregateOutputType = {
     id: number
+    name: number
+    description: number
     fileName: number
     filePath: number
     type: number
-    date: number
     createdAt: number
     updatedAt: number
     ownerId: number
@@ -2111,10 +2114,11 @@ export namespace Prisma {
 
   export type DocumentMinAggregateInputType = {
     id?: true
+    name?: true
+    description?: true
     fileName?: true
     filePath?: true
     type?: true
-    date?: true
     createdAt?: true
     updatedAt?: true
     ownerId?: true
@@ -2122,10 +2126,11 @@ export namespace Prisma {
 
   export type DocumentMaxAggregateInputType = {
     id?: true
+    name?: true
+    description?: true
     fileName?: true
     filePath?: true
     type?: true
-    date?: true
     createdAt?: true
     updatedAt?: true
     ownerId?: true
@@ -2133,10 +2138,11 @@ export namespace Prisma {
 
   export type DocumentCountAggregateInputType = {
     id?: true
+    name?: true
+    description?: true
     fileName?: true
     filePath?: true
     type?: true
-    date?: true
     createdAt?: true
     updatedAt?: true
     ownerId?: true
@@ -2217,10 +2223,11 @@ export namespace Prisma {
 
   export type DocumentGroupByOutputType = {
     id: string
+    name: string
+    description: string | null
     fileName: string
     filePath: string
     type: $Enums.DocumentType
-    date: Date | null
     createdAt: Date
     updatedAt: Date
     ownerId: string
@@ -2245,10 +2252,11 @@ export namespace Prisma {
 
   export type DocumentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    name?: boolean
+    description?: boolean
     fileName?: boolean
     filePath?: boolean
     type?: boolean
-    date?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     ownerId?: boolean
@@ -2257,10 +2265,11 @@ export namespace Prisma {
 
   export type DocumentSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    name?: boolean
+    description?: boolean
     fileName?: boolean
     filePath?: boolean
     type?: boolean
-    date?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     ownerId?: boolean
@@ -2269,10 +2278,11 @@ export namespace Prisma {
 
   export type DocumentSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    name?: boolean
+    description?: boolean
     fileName?: boolean
     filePath?: boolean
     type?: boolean
-    date?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     ownerId?: boolean
@@ -2281,16 +2291,17 @@ export namespace Prisma {
 
   export type DocumentSelectScalar = {
     id?: boolean
+    name?: boolean
+    description?: boolean
     fileName?: boolean
     filePath?: boolean
     type?: boolean
-    date?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     ownerId?: boolean
   }
 
-  export type DocumentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "fileName" | "filePath" | "type" | "date" | "createdAt" | "updatedAt" | "ownerId", ExtArgs["result"]["document"]>
+  export type DocumentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "fileName" | "filePath" | "type" | "createdAt" | "updatedAt" | "ownerId", ExtArgs["result"]["document"]>
   export type DocumentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     owner?: boolean | UserDefaultArgs<ExtArgs>
   }
@@ -2308,10 +2319,11 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
+      name: string
+      description: string | null
       fileName: string
       filePath: string
       type: $Enums.DocumentType
-      date: Date | null
       createdAt: Date
       updatedAt: Date
       ownerId: string
@@ -2740,10 +2752,11 @@ export namespace Prisma {
    */
   interface DocumentFieldRefs {
     readonly id: FieldRef<"Document", 'String'>
+    readonly name: FieldRef<"Document", 'String'>
+    readonly description: FieldRef<"Document", 'String'>
     readonly fileName: FieldRef<"Document", 'String'>
     readonly filePath: FieldRef<"Document", 'String'>
     readonly type: FieldRef<"Document", 'DocumentType'>
-    readonly date: FieldRef<"Document", 'DateTime'>
     readonly createdAt: FieldRef<"Document", 'DateTime'>
     readonly updatedAt: FieldRef<"Document", 'DateTime'>
     readonly ownerId: FieldRef<"Document", 'String'>
@@ -3187,10 +3200,11 @@ export namespace Prisma {
 
   export const DocumentScalarFieldEnum: {
     id: 'id',
+    name: 'name',
+    description: 'description',
     fileName: 'fileName',
     filePath: 'filePath',
     type: 'type',
-    date: 'date',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
     ownerId: 'ownerId'
@@ -3342,10 +3356,11 @@ export namespace Prisma {
     OR?: DocumentWhereInput[]
     NOT?: DocumentWhereInput | DocumentWhereInput[]
     id?: StringFilter<"Document"> | string
+    name?: StringFilter<"Document"> | string
+    description?: StringNullableFilter<"Document"> | string | null
     fileName?: StringFilter<"Document"> | string
     filePath?: StringFilter<"Document"> | string
     type?: EnumDocumentTypeFilter<"Document"> | $Enums.DocumentType
-    date?: DateTimeNullableFilter<"Document"> | Date | string | null
     createdAt?: DateTimeFilter<"Document"> | Date | string
     updatedAt?: DateTimeFilter<"Document"> | Date | string
     ownerId?: StringFilter<"Document"> | string
@@ -3354,10 +3369,11 @@ export namespace Prisma {
 
   export type DocumentOrderByWithRelationInput = {
     id?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
     fileName?: SortOrder
     filePath?: SortOrder
     type?: SortOrder
-    date?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     ownerId?: SortOrder
@@ -3369,10 +3385,11 @@ export namespace Prisma {
     AND?: DocumentWhereInput | DocumentWhereInput[]
     OR?: DocumentWhereInput[]
     NOT?: DocumentWhereInput | DocumentWhereInput[]
+    name?: StringFilter<"Document"> | string
+    description?: StringNullableFilter<"Document"> | string | null
     fileName?: StringFilter<"Document"> | string
     filePath?: StringFilter<"Document"> | string
     type?: EnumDocumentTypeFilter<"Document"> | $Enums.DocumentType
-    date?: DateTimeNullableFilter<"Document"> | Date | string | null
     createdAt?: DateTimeFilter<"Document"> | Date | string
     updatedAt?: DateTimeFilter<"Document"> | Date | string
     ownerId?: StringFilter<"Document"> | string
@@ -3381,10 +3398,11 @@ export namespace Prisma {
 
   export type DocumentOrderByWithAggregationInput = {
     id?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
     fileName?: SortOrder
     filePath?: SortOrder
     type?: SortOrder
-    date?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     ownerId?: SortOrder
@@ -3398,10 +3416,11 @@ export namespace Prisma {
     OR?: DocumentScalarWhereWithAggregatesInput[]
     NOT?: DocumentScalarWhereWithAggregatesInput | DocumentScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Document"> | string
+    name?: StringWithAggregatesFilter<"Document"> | string
+    description?: StringNullableWithAggregatesFilter<"Document"> | string | null
     fileName?: StringWithAggregatesFilter<"Document"> | string
     filePath?: StringWithAggregatesFilter<"Document"> | string
     type?: EnumDocumentTypeWithAggregatesFilter<"Document"> | $Enums.DocumentType
-    date?: DateTimeNullableWithAggregatesFilter<"Document"> | Date | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Document"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Document"> | Date | string
     ownerId?: StringWithAggregatesFilter<"Document"> | string
@@ -3462,10 +3481,11 @@ export namespace Prisma {
 
   export type DocumentCreateInput = {
     id?: string
+    name: string
+    description?: string | null
     fileName: string
     filePath: string
     type: $Enums.DocumentType
-    date?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     owner: UserCreateNestedOneWithoutDocumentsInput
@@ -3473,10 +3493,11 @@ export namespace Prisma {
 
   export type DocumentUncheckedCreateInput = {
     id?: string
+    name: string
+    description?: string | null
     fileName: string
     filePath: string
     type: $Enums.DocumentType
-    date?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     ownerId: string
@@ -3484,10 +3505,11 @@ export namespace Prisma {
 
   export type DocumentUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     fileName?: StringFieldUpdateOperationsInput | string
     filePath?: StringFieldUpdateOperationsInput | string
     type?: EnumDocumentTypeFieldUpdateOperationsInput | $Enums.DocumentType
-    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     owner?: UserUpdateOneRequiredWithoutDocumentsNestedInput
@@ -3495,10 +3517,11 @@ export namespace Prisma {
 
   export type DocumentUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     fileName?: StringFieldUpdateOperationsInput | string
     filePath?: StringFieldUpdateOperationsInput | string
     type?: EnumDocumentTypeFieldUpdateOperationsInput | $Enums.DocumentType
-    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     ownerId?: StringFieldUpdateOperationsInput | string
@@ -3506,10 +3529,11 @@ export namespace Prisma {
 
   export type DocumentCreateManyInput = {
     id?: string
+    name: string
+    description?: string | null
     fileName: string
     filePath: string
     type: $Enums.DocumentType
-    date?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     ownerId: string
@@ -3517,20 +3541,22 @@ export namespace Prisma {
 
   export type DocumentUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     fileName?: StringFieldUpdateOperationsInput | string
     filePath?: StringFieldUpdateOperationsInput | string
     type?: EnumDocumentTypeFieldUpdateOperationsInput | $Enums.DocumentType
-    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type DocumentUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     fileName?: StringFieldUpdateOperationsInput | string
     filePath?: StringFieldUpdateOperationsInput | string
     type?: EnumDocumentTypeFieldUpdateOperationsInput | $Enums.DocumentType
-    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     ownerId?: StringFieldUpdateOperationsInput | string
@@ -3600,22 +3626,26 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type EnumDocumentTypeFilter<$PrismaModel = never> = {
     equals?: $Enums.DocumentType | EnumDocumentTypeFieldRefInput<$PrismaModel>
     in?: $Enums.DocumentType[] | ListEnumDocumentTypeFieldRefInput<$PrismaModel>
     notIn?: $Enums.DocumentType[] | ListEnumDocumentTypeFieldRefInput<$PrismaModel>
     not?: NestedEnumDocumentTypeFilter<$PrismaModel> | $Enums.DocumentType
-  }
-
-  export type DateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
   export type DateTimeFilter<$PrismaModel = never> = {
@@ -3641,10 +3671,11 @@ export namespace Prisma {
 
   export type DocumentCountOrderByAggregateInput = {
     id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
     fileName?: SortOrder
     filePath?: SortOrder
     type?: SortOrder
-    date?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     ownerId?: SortOrder
@@ -3652,10 +3683,11 @@ export namespace Prisma {
 
   export type DocumentMaxOrderByAggregateInput = {
     id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
     fileName?: SortOrder
     filePath?: SortOrder
     type?: SortOrder
-    date?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     ownerId?: SortOrder
@@ -3663,13 +3695,32 @@ export namespace Prisma {
 
   export type DocumentMinOrderByAggregateInput = {
     id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
     fileName?: SortOrder
     filePath?: SortOrder
     type?: SortOrder
-    date?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     ownerId?: SortOrder
+  }
+
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
   export type EnumDocumentTypeWithAggregatesFilter<$PrismaModel = never> = {
@@ -3680,20 +3731,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumDocumentTypeFilter<$PrismaModel>
     _max?: NestedEnumDocumentTypeFilter<$PrismaModel>
-  }
-
-  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -3762,12 +3799,12 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-  export type EnumDocumentTypeFieldUpdateOperationsInput = {
-    set?: $Enums.DocumentType
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
   }
 
-  export type NullableDateTimeFieldUpdateOperationsInput = {
-    set?: Date | string | null
+  export type EnumDocumentTypeFieldUpdateOperationsInput = {
+    set?: $Enums.DocumentType
   }
 
   export type DateTimeFieldUpdateOperationsInput = {
@@ -3824,22 +3861,25 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type NestedEnumDocumentTypeFilter<$PrismaModel = never> = {
     equals?: $Enums.DocumentType | EnumDocumentTypeFieldRefInput<$PrismaModel>
     in?: $Enums.DocumentType[] | ListEnumDocumentTypeFieldRefInput<$PrismaModel>
     notIn?: $Enums.DocumentType[] | ListEnumDocumentTypeFieldRefInput<$PrismaModel>
     not?: NestedEnumDocumentTypeFilter<$PrismaModel> | $Enums.DocumentType
-  }
-
-  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
   export type NestedDateTimeFilter<$PrismaModel = never> = {
@@ -3853,28 +3893,21 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type NestedEnumDocumentTypeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.DocumentType | EnumDocumentTypeFieldRefInput<$PrismaModel>
-    in?: $Enums.DocumentType[] | ListEnumDocumentTypeFieldRefInput<$PrismaModel>
-    notIn?: $Enums.DocumentType[] | ListEnumDocumentTypeFieldRefInput<$PrismaModel>
-    not?: NestedEnumDocumentTypeWithAggregatesFilter<$PrismaModel> | $Enums.DocumentType
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumDocumentTypeFilter<$PrismaModel>
-    _max?: NestedEnumDocumentTypeFilter<$PrismaModel>
-  }
-
-  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
     _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
   export type NestedIntNullableFilter<$PrismaModel = never> = {
@@ -3886,6 +3919,16 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedEnumDocumentTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.DocumentType | EnumDocumentTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.DocumentType[] | ListEnumDocumentTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.DocumentType[] | ListEnumDocumentTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumDocumentTypeWithAggregatesFilter<$PrismaModel> | $Enums.DocumentType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumDocumentTypeFilter<$PrismaModel>
+    _max?: NestedEnumDocumentTypeFilter<$PrismaModel>
   }
 
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -3904,20 +3947,22 @@ export namespace Prisma {
 
   export type DocumentCreateWithoutOwnerInput = {
     id?: string
+    name: string
+    description?: string | null
     fileName: string
     filePath: string
     type: $Enums.DocumentType
-    date?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type DocumentUncheckedCreateWithoutOwnerInput = {
     id?: string
+    name: string
+    description?: string | null
     fileName: string
     filePath: string
     type: $Enums.DocumentType
-    date?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -3953,10 +3998,11 @@ export namespace Prisma {
     OR?: DocumentScalarWhereInput[]
     NOT?: DocumentScalarWhereInput | DocumentScalarWhereInput[]
     id?: StringFilter<"Document"> | string
+    name?: StringFilter<"Document"> | string
+    description?: StringNullableFilter<"Document"> | string | null
     fileName?: StringFilter<"Document"> | string
     filePath?: StringFilter<"Document"> | string
     type?: EnumDocumentTypeFilter<"Document"> | $Enums.DocumentType
-    date?: DateTimeNullableFilter<"Document"> | Date | string | null
     createdAt?: DateTimeFilter<"Document"> | Date | string
     updatedAt?: DateTimeFilter<"Document"> | Date | string
     ownerId?: StringFilter<"Document"> | string
@@ -4008,40 +4054,44 @@ export namespace Prisma {
 
   export type DocumentCreateManyOwnerInput = {
     id?: string
+    name: string
+    description?: string | null
     fileName: string
     filePath: string
     type: $Enums.DocumentType
-    date?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type DocumentUpdateWithoutOwnerInput = {
     id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     fileName?: StringFieldUpdateOperationsInput | string
     filePath?: StringFieldUpdateOperationsInput | string
     type?: EnumDocumentTypeFieldUpdateOperationsInput | $Enums.DocumentType
-    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type DocumentUncheckedUpdateWithoutOwnerInput = {
     id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     fileName?: StringFieldUpdateOperationsInput | string
     filePath?: StringFieldUpdateOperationsInput | string
     type?: EnumDocumentTypeFieldUpdateOperationsInput | $Enums.DocumentType
-    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type DocumentUncheckedUpdateManyWithoutOwnerInput = {
     id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     fileName?: StringFieldUpdateOperationsInput | string
     filePath?: StringFieldUpdateOperationsInput | string
     type?: EnumDocumentTypeFieldUpdateOperationsInput | $Enums.DocumentType
-    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

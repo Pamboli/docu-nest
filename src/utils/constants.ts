@@ -5,4 +5,5 @@ export const ROUTES = {
   LOGIN: "/login",
   SIGNIN: "/signin",
   DOCUMENTS: "/documents",
+  DOCUMENTS_ADD: "/documents/add",
 } as const;

@@ -1,0 +1,3 @@
+Auth:
+
+- Update the token with a new token if its valid

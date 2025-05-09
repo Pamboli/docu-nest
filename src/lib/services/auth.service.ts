@@ -2,8 +2,8 @@ import { jwtVerify, SignJWT } from "jose";
 import prisma from "../prisma";
 import { z } from "zod";
 import { SigninFormSchema } from "../schemas/auth.schemas";
-import { User } from "../generated/prisma";
 import bcrypt from "bcryptjs";
+import { User } from "../../../prisma/generated";
 
 const SALT_ROUNDS = 10;
 
@@ -60,6 +60,11 @@ export async function verifyToken(token: string) {
     console.error(err);
     return false;
   }
+}
+
+export async function getUserIdFromToken(token: string) {
+  const decodedToken = await jwtVerify(token, secretKey);
+  return decodedToken.payload.sub;
 }
 
 async function createToken(user: User) {

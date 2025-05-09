@@ -129,10 +129,11 @@ exports.Prisma.UserScalarFieldEnum = {
 
 exports.Prisma.DocumentScalarFieldEnum = {
   id: 'id',
+  name: 'name',
+  description: 'description',
   fileName: 'fileName',
   filePath: 'filePath',
   type: 'type',
-  date: 'date',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   ownerId: 'ownerId'

@@ -1,40 +1,47 @@
 "use client";
 
 import { clsx } from "clsx";
-import { Eye, EyeClosed } from "lucide-react";
+import { Eye, EyeClosed, type LucideIcon } from "lucide-react";
 import { useState } from "react";
-import { FormError } from "./FormError";
+import { InputWrapper, InputWrapperProps } from "./InputWrapper";
 
-type Props = {
-  label?: string;
-  error?: string;
-  name: string;
+type Props = InputWrapperProps & {
   placeholder?: string;
   type?: "text" | "password" | "email";
+  icon?: LucideIcon;
+  defaultValue?: string;
 };
 
-function Input({ error, label, name, placeholder, type = "text" }: Props) {
+function Input({
+  name,
+  placeholder,
+  type,
+  icon,
+  error,
+  defaultValue,
+  ...props
+}: Props) {
+  const InputIcon = icon;
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const internalType = type === "password" && isPasswordVisible ? "text" : type;
 
   return (
-    <div className="flex w-full flex-col justify-start gap-0.5 text-start">
-      {label && (
-        <label className="text-sm font-medium" htmlFor={name}>
-          {label}
-        </label>
-      )}
+    <InputWrapper name={name} error={error} {...props}>
       <div
         className={clsx(
-          "flex h-11 rounded-md border border-gray-300 px-3 py-2",
+          "flex h-11 rounded-md border items-center border-gray-300 px-3 bg-background",
           {
             "outline outline-red-600": !!error,
             "outline-accent focus-within:outline": !error,
           }
         )}
       >
+        {InputIcon && (
+          <InputIcon className="text-gray-500 mr-3" strokeWidth={1.5} />
+        )}
         <input
+          defaultValue={defaultValue}
           className="w-full outline-none"
           name={name}
           placeholder={placeholder}
@@ -51,8 +58,7 @@ function Input({ error, label, name, placeholder, type = "text" }: Props) {
           </button>
         )}
       </div>
-      {error && <FormError>{error}</FormError>}
-    </div>
+    </InputWrapper>
   );
 }
 
