@@ -7,3 +7,9 @@ export const ROUTES = {
   DOCUMENTS: "/documents",
   DOCUMENTS_ADD: "/documents/add",
 } as const;
+
+export function noop() {}
+
+export async function sleep(time: number) {
+  await new Promise((resolve) => setTimeout(resolve, time));
+}

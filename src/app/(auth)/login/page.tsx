@@ -1,7 +1,7 @@
 import { Logo } from "@/components/common/Logo";
 import { LoginForm } from "@/components/login/LoginForm";
 import { SearchParams } from "@/types/page";
-import { ROUTES } from "@/utils/constants";
+import { ROUTES } from "@/utils/utils";
 import Link from "next/link";
 
 export default async function LoginPage(props: { searchParams: SearchParams }) {

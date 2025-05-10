@@ -4,6 +4,8 @@ import { z } from "zod";
 import { SigninFormSchema } from "../schemas/auth.schemas";
 import bcrypt from "bcryptjs";
 import { User } from "../../../prisma/generated";
+import { cookies } from "next/headers";
+import { ACCESS_TOKEN } from "@/utils/utils";
 
 const SALT_ROUNDS = 10;
 
@@ -65,6 +67,12 @@ export async function verifyToken(token: string) {
 export async function getUserIdFromToken(token: string) {
   const decodedToken = await jwtVerify(token, secretKey);
   return decodedToken.payload.sub;
+}
+
+export async function getAccessToken() {
+  const cookieStore = await cookies();
+  const accessTokenCookie = cookieStore.get(ACCESS_TOKEN);
+  return accessTokenCookie?.value ?? "";
 }
 
 async function createToken(user: User) {

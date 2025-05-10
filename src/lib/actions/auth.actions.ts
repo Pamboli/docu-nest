@@ -6,7 +6,7 @@ import { z } from "zod";
 import { redirect } from "next/navigation";
 import { createUser, verifyLogin } from "../services/auth.service";
 import { cookies } from "next/headers";
-import { ACCESS_TOKEN, ROUTES } from "@/utils/constants";
+import { ACCESS_TOKEN, ROUTES } from "@/utils/utils";
 
 type LoginState = FormState<null, z.infer<typeof LoginFormSchema>>;
 type SigninState = FormState<null, z.infer<typeof SigninFormSchema>>;

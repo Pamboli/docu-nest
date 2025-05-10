@@ -9,7 +9,7 @@ import { BookOpenText, FilePenLine, FileTypeIcon } from "lucide-react";
 import { Select } from "../common/Select";
 import { DocumentType } from "../../../prisma/generated";
 import { Button } from "../common/Button";
-import { ROUTES } from "@/utils/constants";
+import { ROUTES } from "@/utils/utils";
 import { FormError } from "../common/FormError";
 
 type FileTypeOption = {

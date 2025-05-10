@@ -1,6 +1,6 @@
 "use client";
 
-import { ROUTES } from "@/utils/constants";
+import { ROUTES } from "@/utils/utils";
 import { clsx } from "clsx";
 import { File, House, LucideIcon } from "lucide-react";
 import Link from "next/link";

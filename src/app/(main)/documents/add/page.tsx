@@ -1,6 +1,6 @@
 import { Breadcrumb } from "@/components/common/Breadcrumb";
 import { AddDocumentForm } from "@/components/documents/AddDocumentForm";
-import { ROUTES } from "@/utils/constants";
+import { ROUTES } from "@/utils/utils";
 
 export default function AddDocumentPage() {
   return (

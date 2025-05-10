@@ -3,7 +3,7 @@ import { Button } from "../common/Button";
 import { Logo } from "../common/Logo";
 import { Navigation } from "./Navigation";
 import Link from "next/link";
-import { ROUTES } from "@/utils/constants";
+import { ROUTES } from "@/utils/utils";
 import { Power } from "lucide-react";
 
 export function SideMenu() {

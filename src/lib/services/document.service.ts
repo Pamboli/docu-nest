@@ -5,12 +5,52 @@ import path from "path";
 import { randomUUID } from "crypto";
 import { mkdir } from "fs/promises";
 import prisma from "../prisma";
+import { ListParams } from "@/types/page";
+import { Document } from "../../../prisma/generated";
+import { DocumentDto } from "../dto/documents.dto";
 
 const FILE_STORAGE_PATH = process.env.FILE_STORAGE_PATH;
 
 type AddDocumentType = z.infer<typeof AddDocumentFormSchema> & {
   userId: string;
 };
+
+export async function getDocumentPages(query: string, itemsPerPage: number) {
+  const totalItems = await prisma.document.count({
+    where: {
+      name: {
+        contains: query,
+      },
+    },
+  });
+
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  return totalPages;
+}
+
+export async function getDocuments(
+  userId: string,
+  { page, itemsPerPage, orderBy, query }: ListParams<Document>
+) {
+  const skip = itemsPerPage * (page - 1);
+
+  const documents = await prisma.document.findMany({
+    where: {
+      ownerId: userId,
+      name: {
+        contains: query,
+        mode: "insensitive",
+      },
+    },
+    skip,
+    take: itemsPerPage,
+    orderBy,
+  });
+
+  return documents.map<DocumentDto>(
+    ({ filePath, ownerId, fileName, ...doc }) => doc
+  );
+}
 
 export async function postDocument({
   file,

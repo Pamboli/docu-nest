@@ -6,7 +6,7 @@ import { AddDocumentFormSchema } from "../schemas/document.schemas";
 import { postDocument } from "../services/document.service";
 import { cookies } from "next/headers";
 import { getUserIdFromToken } from "../services/auth.service";
-import { ACCESS_TOKEN, ROUTES } from "@/utils/constants";
+import { ACCESS_TOKEN, ROUTES } from "@/utils/utils";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 

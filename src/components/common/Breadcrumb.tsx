@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { PageTitle } from "./PageTitle";
 import { domine } from "@/utils/fonts";
 
 type Props = {
@@ -25,7 +24,9 @@ export function Breadcrumb({ breadcrumbs }: Props) {
         {breadcrumbs.map((bc, idx) => (
           <li key={`${idx}-${bc.href}`}>
             {bc.active ? (
-              <PageTitle>{bc.label}</PageTitle>
+              <h1 className={`text-[28px] font-medium ${domine.className}`}>
+                {bc.label}
+              </h1>
             ) : (
               <Link
                 className={`text-[28px] font-medium text-gray-500 ${domine.className}`}

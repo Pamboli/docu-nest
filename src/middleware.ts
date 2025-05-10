@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { ACCESS_TOKEN, ROUTES } from "./utils/constants";
+import { ACCESS_TOKEN, ROUTES } from "./utils/utils";
 import { verifyToken } from "./lib/services/auth.service";
 
 const OPEN_ROUTES = [ROUTES.LOGIN, ROUTES.SIGNIN] as string[];

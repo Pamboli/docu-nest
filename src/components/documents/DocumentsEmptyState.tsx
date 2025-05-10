@@ -1,6 +1,6 @@
 import { Box, FilePlus } from "lucide-react";
 import { Button } from "../common/Button";
-import { ROUTES } from "@/utils/constants";
+import { ROUTES } from "@/utils/utils";
 
 export function DocumentsEmptyState() {
   return (
