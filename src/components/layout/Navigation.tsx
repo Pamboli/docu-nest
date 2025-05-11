@@ -36,7 +36,7 @@ export function Navigation() {
           return (
             <Link
               className={clsx(
-                "flex gap-2 items-center h-12 px-3 rounded-md font-medium hover:bg-blue-200 hover:text-primary",
+                "flex gap-2 items-center h-11 px-3 rounded-md font-medium hover:bg-blue-200 hover:text-primary",
                 pathname === ROUTES[href] && "text-primary",
                 {
                   "bg-gray-200": pathname !== ROUTES[href],

@@ -28,7 +28,7 @@ export function Search({ placeholder }: Props) {
   }, 300);
 
   return (
-    <div className="flex h-11 mb-4 rounded-md border items-center border-gray-300 px-3 bg-background outline-accent focus-within:outline">
+    <div className="w-full flex h-11 rounded-md border items-center border-gray-300 px-3 bg-background outline-accent focus-within:outline">
       <SearchIcon className="text-gray-500 mr-3" strokeWidth={1.5} />
       <input
         defaultValue={searchParams.get("query")?.toString()}

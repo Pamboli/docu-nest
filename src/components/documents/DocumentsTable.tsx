@@ -101,5 +101,9 @@ export async function DocumentsTable({
     return <DocumentsEmptyState />;
   }
 
-  return <Table data={documents} columns={columns} />;
+  return (
+    <div className="my-4">
+      <Table data={documents} columns={columns} />
+    </div>
+  );
 }

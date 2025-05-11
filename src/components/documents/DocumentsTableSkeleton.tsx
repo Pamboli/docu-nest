@@ -51,7 +51,7 @@ function TableRow() {
 
 export function DocumentsTableSkeleton() {
   return (
-    <div className="p-2">
+    <div className="p-2 mt-4">
       <table className="min-w-full">
         <thead className="text-left">
           <tr>
