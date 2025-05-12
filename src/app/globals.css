@@ -12,7 +12,8 @@
   --font-main: var(--font-inter);
   --font-title: var(--font-domine);
   --color-primary: var(--color-blue-700);
-  --color-primary-hover: var(--color-blue-600);
+  --color-primary-hover: var(--color-blue-800);
+  --text-2\.5-xl: 1.75rem;
 }
 
 @media (prefers-color-scheme: dark) {

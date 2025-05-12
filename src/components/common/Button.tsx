@@ -6,15 +6,17 @@ import Link from "next/link";
 
 type Props = {
   noGrow?: boolean;
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "danger";
   loading?: boolean;
 } & (
   | {
       type?: "submit" | "reset" | "button";
+      onClick?: () => void;
       href?: never;
     }
   | {
       type?: never;
+      onClick?: never;
       href: string;
     }
 );
@@ -22,9 +24,13 @@ type Props = {
 function getVariant(variant: Props["variant"]) {
   return clsx(
     "text-nowrap rounded-md px-4 flex items-center gap-2 justify-center font-medium transition-colors h-11 cursor-pointer",
-    variant === "primary"
-      ? "hover:bg-primary-hover bg-primary text-background"
-      : "hover:bg-gray-300 bg-gray-200 text-gray-600"
+    {
+      "hover:bg-primary-hover bg-primary text-background":
+        variant === "primary",
+      "hover:bg-gray-300 bg-gray-200 text-gray-600 border border-gray-300":
+        variant === "secondary",
+      "hover:bg-red-800 bg-red-700 text-background": variant === "danger",
+    }
   );
 }
 
@@ -35,6 +41,7 @@ function Button({
   loading,
   href,
   noGrow = false,
+  onClick,
 }: PropsWithChildren<Props>) {
   if (href) {
     return (
@@ -49,6 +56,7 @@ function Button({
 
   return (
     <button
+      onClick={onClick}
       className={clsx(getVariant(variant), !noGrow && "w-full")}
       type={type}
     >

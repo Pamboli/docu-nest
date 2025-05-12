@@ -2078,6 +2078,7 @@ export namespace Prisma {
     id: string | null
     name: string | null
     description: string | null
+    originalFileName: string | null
     fileName: string | null
     filePath: string | null
     type: $Enums.DocumentType | null
@@ -2090,6 +2091,7 @@ export namespace Prisma {
     id: string | null
     name: string | null
     description: string | null
+    originalFileName: string | null
     fileName: string | null
     filePath: string | null
     type: $Enums.DocumentType | null
@@ -2102,6 +2104,7 @@ export namespace Prisma {
     id: number
     name: number
     description: number
+    originalFileName: number
     fileName: number
     filePath: number
     type: number
@@ -2116,6 +2119,7 @@ export namespace Prisma {
     id?: true
     name?: true
     description?: true
+    originalFileName?: true
     fileName?: true
     filePath?: true
     type?: true
@@ -2128,6 +2132,7 @@ export namespace Prisma {
     id?: true
     name?: true
     description?: true
+    originalFileName?: true
     fileName?: true
     filePath?: true
     type?: true
@@ -2140,6 +2145,7 @@ export namespace Prisma {
     id?: true
     name?: true
     description?: true
+    originalFileName?: true
     fileName?: true
     filePath?: true
     type?: true
@@ -2225,6 +2231,7 @@ export namespace Prisma {
     id: string
     name: string
     description: string | null
+    originalFileName: string
     fileName: string
     filePath: string
     type: $Enums.DocumentType
@@ -2254,6 +2261,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     description?: boolean
+    originalFileName?: boolean
     fileName?: boolean
     filePath?: boolean
     type?: boolean
@@ -2267,6 +2275,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     description?: boolean
+    originalFileName?: boolean
     fileName?: boolean
     filePath?: boolean
     type?: boolean
@@ -2280,6 +2289,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     description?: boolean
+    originalFileName?: boolean
     fileName?: boolean
     filePath?: boolean
     type?: boolean
@@ -2293,6 +2303,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     description?: boolean
+    originalFileName?: boolean
     fileName?: boolean
     filePath?: boolean
     type?: boolean
@@ -2301,7 +2312,7 @@ export namespace Prisma {
     ownerId?: boolean
   }
 
-  export type DocumentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "fileName" | "filePath" | "type" | "createdAt" | "updatedAt" | "ownerId", ExtArgs["result"]["document"]>
+  export type DocumentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "originalFileName" | "fileName" | "filePath" | "type" | "createdAt" | "updatedAt" | "ownerId", ExtArgs["result"]["document"]>
   export type DocumentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     owner?: boolean | UserDefaultArgs<ExtArgs>
   }
@@ -2321,6 +2332,7 @@ export namespace Prisma {
       id: string
       name: string
       description: string | null
+      originalFileName: string
       fileName: string
       filePath: string
       type: $Enums.DocumentType
@@ -2754,6 +2766,7 @@ export namespace Prisma {
     readonly id: FieldRef<"Document", 'String'>
     readonly name: FieldRef<"Document", 'String'>
     readonly description: FieldRef<"Document", 'String'>
+    readonly originalFileName: FieldRef<"Document", 'String'>
     readonly fileName: FieldRef<"Document", 'String'>
     readonly filePath: FieldRef<"Document", 'String'>
     readonly type: FieldRef<"Document", 'DocumentType'>
@@ -3202,6 +3215,7 @@ export namespace Prisma {
     id: 'id',
     name: 'name',
     description: 'description',
+    originalFileName: 'originalFileName',
     fileName: 'fileName',
     filePath: 'filePath',
     type: 'type',
@@ -3358,6 +3372,7 @@ export namespace Prisma {
     id?: StringFilter<"Document"> | string
     name?: StringFilter<"Document"> | string
     description?: StringNullableFilter<"Document"> | string | null
+    originalFileName?: StringFilter<"Document"> | string
     fileName?: StringFilter<"Document"> | string
     filePath?: StringFilter<"Document"> | string
     type?: EnumDocumentTypeFilter<"Document"> | $Enums.DocumentType
@@ -3371,6 +3386,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrderInput | SortOrder
+    originalFileName?: SortOrder
     fileName?: SortOrder
     filePath?: SortOrder
     type?: SortOrder
@@ -3387,6 +3403,7 @@ export namespace Prisma {
     NOT?: DocumentWhereInput | DocumentWhereInput[]
     name?: StringFilter<"Document"> | string
     description?: StringNullableFilter<"Document"> | string | null
+    originalFileName?: StringFilter<"Document"> | string
     fileName?: StringFilter<"Document"> | string
     filePath?: StringFilter<"Document"> | string
     type?: EnumDocumentTypeFilter<"Document"> | $Enums.DocumentType
@@ -3400,6 +3417,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrderInput | SortOrder
+    originalFileName?: SortOrder
     fileName?: SortOrder
     filePath?: SortOrder
     type?: SortOrder
@@ -3418,6 +3436,7 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"Document"> | string
     name?: StringWithAggregatesFilter<"Document"> | string
     description?: StringNullableWithAggregatesFilter<"Document"> | string | null
+    originalFileName?: StringWithAggregatesFilter<"Document"> | string
     fileName?: StringWithAggregatesFilter<"Document"> | string
     filePath?: StringWithAggregatesFilter<"Document"> | string
     type?: EnumDocumentTypeWithAggregatesFilter<"Document"> | $Enums.DocumentType
@@ -3483,6 +3502,7 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
+    originalFileName?: string
     fileName: string
     filePath: string
     type: $Enums.DocumentType
@@ -3495,6 +3515,7 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
+    originalFileName?: string
     fileName: string
     filePath: string
     type: $Enums.DocumentType
@@ -3507,6 +3528,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    originalFileName?: StringFieldUpdateOperationsInput | string
     fileName?: StringFieldUpdateOperationsInput | string
     filePath?: StringFieldUpdateOperationsInput | string
     type?: EnumDocumentTypeFieldUpdateOperationsInput | $Enums.DocumentType
@@ -3519,6 +3541,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    originalFileName?: StringFieldUpdateOperationsInput | string
     fileName?: StringFieldUpdateOperationsInput | string
     filePath?: StringFieldUpdateOperationsInput | string
     type?: EnumDocumentTypeFieldUpdateOperationsInput | $Enums.DocumentType
@@ -3531,6 +3554,7 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
+    originalFileName?: string
     fileName: string
     filePath: string
     type: $Enums.DocumentType
@@ -3543,6 +3567,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    originalFileName?: StringFieldUpdateOperationsInput | string
     fileName?: StringFieldUpdateOperationsInput | string
     filePath?: StringFieldUpdateOperationsInput | string
     type?: EnumDocumentTypeFieldUpdateOperationsInput | $Enums.DocumentType
@@ -3554,6 +3579,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    originalFileName?: StringFieldUpdateOperationsInput | string
     fileName?: StringFieldUpdateOperationsInput | string
     filePath?: StringFieldUpdateOperationsInput | string
     type?: EnumDocumentTypeFieldUpdateOperationsInput | $Enums.DocumentType
@@ -3673,6 +3699,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
+    originalFileName?: SortOrder
     fileName?: SortOrder
     filePath?: SortOrder
     type?: SortOrder
@@ -3685,6 +3712,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
+    originalFileName?: SortOrder
     fileName?: SortOrder
     filePath?: SortOrder
     type?: SortOrder
@@ -3697,6 +3725,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
+    originalFileName?: SortOrder
     fileName?: SortOrder
     filePath?: SortOrder
     type?: SortOrder
@@ -3949,6 +3978,7 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
+    originalFileName?: string
     fileName: string
     filePath: string
     type: $Enums.DocumentType
@@ -3960,6 +3990,7 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
+    originalFileName?: string
     fileName: string
     filePath: string
     type: $Enums.DocumentType
@@ -4000,6 +4031,7 @@ export namespace Prisma {
     id?: StringFilter<"Document"> | string
     name?: StringFilter<"Document"> | string
     description?: StringNullableFilter<"Document"> | string | null
+    originalFileName?: StringFilter<"Document"> | string
     fileName?: StringFilter<"Document"> | string
     filePath?: StringFilter<"Document"> | string
     type?: EnumDocumentTypeFilter<"Document"> | $Enums.DocumentType
@@ -4056,6 +4088,7 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
+    originalFileName?: string
     fileName: string
     filePath: string
     type: $Enums.DocumentType
@@ -4067,6 +4100,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    originalFileName?: StringFieldUpdateOperationsInput | string
     fileName?: StringFieldUpdateOperationsInput | string
     filePath?: StringFieldUpdateOperationsInput | string
     type?: EnumDocumentTypeFieldUpdateOperationsInput | $Enums.DocumentType
@@ -4078,6 +4112,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    originalFileName?: StringFieldUpdateOperationsInput | string
     fileName?: StringFieldUpdateOperationsInput | string
     filePath?: StringFieldUpdateOperationsInput | string
     type?: EnumDocumentTypeFieldUpdateOperationsInput | $Enums.DocumentType
@@ -4089,6 +4124,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    originalFileName?: StringFieldUpdateOperationsInput | string
     fileName?: StringFieldUpdateOperationsInput | string
     filePath?: StringFieldUpdateOperationsInput | string
     type?: EnumDocumentTypeFieldUpdateOperationsInput | $Enums.DocumentType

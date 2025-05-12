@@ -4,11 +4,11 @@ import {
 } from "@/lib/services/auth.service";
 import { getDocuments } from "@/lib/services/document.service";
 import { DocumentsEmptyState } from "./DocumentsEmptyState";
-import { Column, Table } from "../common/Table";
 import { DocumentDto } from "@/lib/dto/documents.dto";
 import { DocumentTableActions } from "./DocumentTableActions";
-import { DocumentType } from "../../../prisma/generated";
 import { Calendar, FileIcon, FileText, ReceiptEuro } from "lucide-react";
+import { DocumentType } from "../../../prisma/generated";
+import { Column, Table } from "../common/Table";
 
 type Props = {
   query: string;

@@ -4,12 +4,11 @@ import { addDocument } from "@/lib/actions/document.action";
 import { useActionState } from "react";
 import { FileInput } from "../common/FileInput";
 import { Input } from "../common/Input";
-import { ACCEPTED_FILE_TYPES } from "@/lib/schemas/document.schemas";
 import { BookOpenText, FilePenLine, FileTypeIcon } from "lucide-react";
 import { Select } from "../common/Select";
 import { DocumentType } from "../../../prisma/generated";
 import { Button } from "../common/Button";
-import { ROUTES } from "@/utils/utils";
+import { ACCEPTED_FILE_TYPES, ROUTES } from "@/utils/utils";
 import { FormError } from "../common/FormError";
 
 type FileTypeOption = {

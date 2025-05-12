@@ -7,7 +7,7 @@ import { mkdir } from "fs/promises";
 import prisma from "../prisma";
 import { ListParams } from "@/types/page";
 import { Document } from "../../../prisma/generated";
-import { DocumentDto } from "../dto/documents.dto";
+import { DocumentDetailDto, DocumentDto } from "../dto/documents.dto";
 
 const FILE_STORAGE_PATH = process.env.FILE_STORAGE_PATH;
 
@@ -44,12 +44,43 @@ export async function getDocuments(
     },
     skip,
     take: itemsPerPage,
-    orderBy,
+    orderBy: orderBy ?? { updatedAt: "desc" },
   });
 
   return documents.map<DocumentDto>(
     ({ filePath, ownerId, fileName, ...doc }) => doc
   );
+}
+
+export async function getDocumentById(documentId: string, userId: string) {
+  const document = await prisma.document.findUnique({
+    where: {
+      id: documentId,
+    },
+  });
+
+  if (!document) {
+    throw new Error("Document not found");
+  }
+
+  if (userId !== document.ownerId) {
+    throw new Error("Unauthorized");
+  }
+
+  const documentUrl = `/api/uploads/${userId}/${document.fileName}`;
+
+  const documentDto: DocumentDetailDto = {
+    createdAt: document.createdAt,
+    description: document.description,
+    id: document.id,
+    name: document.name,
+    type: document.type,
+    updatedAt: document.updatedAt,
+    url: documentUrl,
+    originalFileName: document.originalFileName,
+  };
+
+  return documentDto;
 }
 
 export async function postDocument({
@@ -59,11 +90,12 @@ export async function postDocument({
   description,
   fileType,
 }: AddDocumentType) {
-  const filePath = await saveFileToStorage(file, userId);
+  const { filePath, fileName } = await saveFileToStorage(file, userId);
 
   await prisma.document.create({
     data: {
-      fileName: file.name,
+      originalFileName: file.name,
+      fileName,
       filePath,
       name,
       description,
@@ -92,5 +124,5 @@ async function saveFileToStorage(file: File, userId: string) {
   await mkdir(userDir, { recursive: true });
   await writeFile(filePath, buffer);
 
-  return filePath;
+  return { filePath, fileName: uniqueName };
 }

@@ -1,15 +1,9 @@
 import { z } from "zod";
 import { $Enums } from "../../../prisma/generated";
+import { ACCEPTED_FILE_TYPES } from "@/utils/utils";
 
 const MAX_FILE_SIZE_BYTE =
   Number(process.env.MAX_FILE_SIZE_MB ?? 5) * 1024 * 1024;
-
-export const ACCEPTED_FILE_TYPES = [
-  "image/jpeg",
-  "image/png",
-  "application/pdf",
-  "text/plain",
-];
 
 export const AddDocumentFormSchema = z.object({
   name: z

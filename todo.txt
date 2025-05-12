@@ -1,3 +1,13 @@
 Auth:
 
 - Update the token with a new token if its valid
+
+UI:
+
+- Create toast provider and use it on Documents/Detail -> copy id to clipboard
+
+DOCS:
+
+- Búsqueda por múltiples campos
+- Filtros
+- Ordenación

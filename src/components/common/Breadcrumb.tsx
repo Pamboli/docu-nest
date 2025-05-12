@@ -24,19 +24,19 @@ export function Breadcrumb({ breadcrumbs }: Props) {
         {breadcrumbs.map((bc, idx) => (
           <li key={`${idx}-${bc.href}`}>
             {bc.active ? (
-              <h1 className={`text-[28px] font-medium ${domine.className}`}>
+              <h1 className={`text-2.5-xl font-medium ${domine.className}`}>
                 {bc.label}
               </h1>
             ) : (
               <Link
-                className={`text-[28px] font-medium text-gray-500 ${domine.className}`}
+                className={`text-2.5-xl font-medium text-gray-500 ${domine.className}`}
                 href={bc.href}
               >
                 {bc.label}
               </Link>
             )}
             {idx < breadcrumbs.length - 1 && (
-              <span className="ml-3 text-[28px] font-medium">/</span>
+              <span className="ml-3 text-2.5-xl font-medium">/</span>
             )}
           </li>
         ))}
