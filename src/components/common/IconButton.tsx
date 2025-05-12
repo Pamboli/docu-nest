@@ -17,11 +17,11 @@ export function IconButton({
   onClick,
   href,
   type = "submit",
-  disabled,
+  disabled = false,
 }: Props) {
   const Icon = icon;
   const className = clsx(
-    "border-2 border-gray-200 p-2 rounded-md transition-colors",
+    "border-2 border-gray-200 p-2 rounded-md transition-colors cursor-pointer",
     {
       "hover:bg-gray-200": !disabled,
       "text-gray-300 cursor-default": disabled,
@@ -30,7 +30,12 @@ export function IconButton({
 
   if (!href || disabled) {
     return (
-      <button disabled type={type} className={className} onClick={onClick}>
+      <button
+        disabled={disabled}
+        type={type}
+        className={className}
+        onClick={onClick}
+      >
         <Icon size={20} />
       </button>
     );

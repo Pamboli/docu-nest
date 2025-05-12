@@ -38,7 +38,6 @@ export function Pagination({ totalPages }: Props) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const currentPage = Number(searchParams.get("page") ?? 1);
-  console.log("🚀 ~ Pagination ~ currentPage:", currentPage);
 
   function getPaginatedUrl(pageNumber: number) {
     const params = new URLSearchParams(searchParams);

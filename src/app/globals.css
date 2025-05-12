@@ -6,6 +6,11 @@
   --primary: #1e2a38;
 }
 
+@theme {
+  --text-2\.5-xl: 1.75rem;
+  --blur-2xs: 2px;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -13,7 +18,6 @@
   --font-title: var(--font-domine);
   --color-primary: var(--color-blue-700);
   --color-primary-hover: var(--color-blue-800);
-  --text-2\.5-xl: 1.75rem;
 }
 
 @media (prefers-color-scheme: dark) {

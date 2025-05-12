@@ -1,5 +1,6 @@
 import { Breadcrumb } from "@/components/common/Breadcrumb";
 import { Button } from "@/components/common/Button";
+import { DeleteDocumentButton } from "@/components/documents/DeleteDocumentButton";
 import { DocumentIdCopy } from "@/components/documents/DocumentIdCopy";
 import { DownloadFileButton } from "@/components/documents/DownloadFileButton";
 import {
@@ -8,7 +9,7 @@ import {
 } from "@/lib/services/auth.service";
 import { getDocumentById } from "@/lib/services/document.service";
 import { ROUTES } from "@/utils/utils";
-import { EditIcon, FileMinus } from "lucide-react";
+import { EditIcon } from "lucide-react";
 
 export default async function DocumentDetailPage(props: {
   params: Promise<{ documentId: string }>;
@@ -76,10 +77,10 @@ export default async function DocumentDetailPage(props: {
                 <EditIcon />
                 <p>Editar documento</p>
               </Button>
-              <Button type="button" variant="danger">
-                <FileMinus />
-                <p>Eliminar documento</p>
-              </Button>
+              <DeleteDocumentButton
+                documentId={documentId}
+                name={document.name}
+              />
             </div>
           </section>
           <DownloadFileButton

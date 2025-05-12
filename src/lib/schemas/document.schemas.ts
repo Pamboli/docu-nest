@@ -26,3 +26,10 @@ export const AddDocumentFormSchema = z.object({
       message: "Tipo de archivo no permitido",
     }),
 });
+
+export const DeleteDocumentSchema = z.object({
+  documentId: z
+    .string()
+    .min(1, { message: "Id del documento no encontrado" })
+    .uuid("Formato de Id no válido"),
+});

@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { AddDocumentFormSchema } from "../schemas/document.schemas";
-import { writeFile } from "fs/promises";
+import { writeFile, rm } from "fs/promises";
 import path from "path";
 import { randomUUID } from "crypto";
 import { mkdir } from "fs/promises";
@@ -81,6 +81,28 @@ export async function getDocumentById(documentId: string, userId: string) {
   };
 
   return documentDto;
+}
+
+export async function deleteDocument(userId: string, documentId: string) {
+  const document = await prisma.document.findUnique({
+    where: { id: documentId },
+  });
+
+  if (!document) {
+    throw new Error("Document not found");
+  }
+
+  if (document.ownerId !== userId) {
+    throw new Error("Unauthorized");
+  }
+
+  await rm(document.filePath, { force: true });
+
+  await prisma.document.delete({
+    where: {
+      id: documentId,
+    },
+  });
 }
 
 export async function postDocument({

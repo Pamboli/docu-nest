@@ -19,14 +19,6 @@ export function FileInput({ multiple, accept, name, ...props }: Props) {
   useEffect(() => {
     const input = inputRef.current;
 
-    if (input) {
-      console.log("🚀 ~ useEffect ~ input:", input.files);
-    }
-  }, [inputRef]);
-
-  useEffect(() => {
-    const input = inputRef.current;
-
     if (!input) return;
 
     const onInputChangeHandler = () => {

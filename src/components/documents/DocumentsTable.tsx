@@ -75,7 +75,7 @@ const columns: Column<DocumentDto>[] = [
   },
   {
     key: "action",
-    cell: (row) => <DocumentTableActions documentId={row.id} />,
+    cell: (row) => <DocumentTableActions documentId={row.id} name={row.name} />,
   },
 ];
 
